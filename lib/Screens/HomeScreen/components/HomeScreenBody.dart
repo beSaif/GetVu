@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:getvuapp/Screens/HomeScreen/components/FromToWidget.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class HomeScreenBody extends StatefulWidget {
   const HomeScreenBody({super.key});
@@ -9,6 +10,10 @@ class HomeScreenBody extends StatefulWidget {
 }
 
 class _HomeScreenBodyState extends State<HomeScreenBody> {
+  static final CameraPosition _kGooglePlex = CameraPosition(
+    target: LatLng(37.42796133580664, -122.085749655962),
+    zoom: 14.4746,
+  );
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -19,9 +24,15 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
         width: double.infinity,
         //color: Colors.green,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             FromToWidget(),
+
+            Container(
+                height: 600,
+                child: GoogleMap(initialCameraPosition: _kGooglePlex)),
+            Container()
             // const Text("Home Screen"),
           ],
         ),
