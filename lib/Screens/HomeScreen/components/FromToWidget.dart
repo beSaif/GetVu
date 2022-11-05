@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:getvuapp/GetX/booking_controller.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class FromToWidget extends StatefulWidget {
@@ -9,6 +11,9 @@ class FromToWidget extends StatefulWidget {
 }
 
 class _FromToWidgetState extends State<FromToWidget> {
+  final BookingController _bookingController =
+      Get.put(BookingController(), permanent: false);
+
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -27,13 +32,21 @@ class _FromToWidgetState extends State<FromToWidget> {
           padding: const EdgeInsets.only(left: 10, right: 10),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
-              FromtoButton(buttonType: ButtonType.from, location: 'Bangalore'),
-              VerticalDivider(
+            children: [
+              GetBuilder<BookingController>(
+                builder: (_) => FromtoButton(
+                    buttonType: ButtonType.from,
+                    location: _bookingController.fromLocation),
+              ),
+              const VerticalDivider(
                 color: Colors.black,
                 thickness: 1,
               ),
-              FromtoButton(buttonType: ButtonType.to, location: 'Kerala'),
+              GetBuilder<BookingController>(
+                builder: (_) => FromtoButton(
+                    buttonType: ButtonType.from,
+                    location: _bookingController.toLocation),
+              ),
             ],
           ),
         ),
@@ -72,7 +85,11 @@ class FromtoButton extends StatelessWidget {
             isScrollControlled: true,
             context: context,
             builder: (context) {
-              return const SelectCity();
+              return SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.919,
+                  child: SelectCity(
+                    buttonType: buttonType,
+                  ));
             },
           );
         },
@@ -106,8 +123,10 @@ class FromtoButton extends StatelessWidget {
 }
 
 class SelectCity extends StatefulWidget {
+  final ButtonType buttonType;
   const SelectCity({
     Key? key,
+    required this.buttonType,
   }) : super(key: key);
 
   @override
@@ -115,6 +134,9 @@ class SelectCity extends StatefulWidget {
 }
 
 class _SelectCityState extends State<SelectCity> {
+  final BookingController _bookingController =
+      Get.put(BookingController(), permanent: false);
+  List cities = ['Mumbai', 'Bangalore', 'Kerala', 'Delhi', 'Chennai'];
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -127,6 +149,26 @@ class _SelectCityState extends State<SelectCity> {
             },
           ),
           title: const Text('Select City'),
+        ),
+        body: ListView.builder(
+          itemCount: 5,
+          itemBuilder: (BuildContext context, int index) {
+            return GestureDetector(
+              onTap: () async {
+                if (widget.buttonType == ButtonType.from) {
+                  _bookingController.setFromLocation(cities[index]);
+                } else {
+                  _bookingController.setToLocation(cities[index]);
+                }
+
+                Navigator.pop(context);
+              },
+              child: Card(
+                  child: ListTile(
+                title: Text(cities[index], style: GoogleFonts.lato()),
+              )),
+            );
+          },
         ),
       ),
     );
