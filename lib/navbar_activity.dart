@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:getvuapp/GetX/other_controllers.dart';
 import 'package:getvuapp/Screens/BookingScreen/BookingScreen.dart';
 import 'package:getvuapp/Screens/HomeScreen/HomeScreen.dart';
 import 'package:getvuapp/Screens/ProfileScreen/ProfileScreen.dart';
@@ -16,6 +18,8 @@ class NavbarActivity extends StatefulWidget {
 class _NavbarActivityState extends State<NavbarActivity> {
   final PersistentTabController _controller =
       PersistentTabController(initialIndex: 0);
+  final OtherController _otherController =
+      Get.put(OtherController(), permanent: false);
 
   List<Widget> _buildScreens() {
     return [
@@ -37,6 +41,8 @@ class _NavbarActivityState extends State<NavbarActivity> {
 
   @override
   Widget build(BuildContext context) {
+    _otherController.setTopPadding(MediaQuery.of(context).padding.top);
+
     return PersistentTabView(
       context,
       controller: _controller,
