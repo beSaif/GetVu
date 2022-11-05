@@ -13,7 +13,7 @@ class BookingController extends GetxController {
 
   void setToLocation(String toInLocation) {
     toLocation = toInLocation;
-    debugPrint(fromLocation);
+    debugPrint(toLocation);
     update();
   }
 }
