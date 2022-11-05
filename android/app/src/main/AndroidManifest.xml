@@ -4,6 +4,8 @@
         android:label="getvuapp"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+        <meta-data android:name="com.google.android.geo.API_KEY"
+        android:value="AIzaSyB6wulp3gFLmLw9UQSELklNTVScPrkNr0E"/>
  
         <activity
             android:name=".MainActivity"
@@ -22,8 +24,7 @@
               android:resource="@style/NormalTheme"
               />
 
-            <meta-data android:name="com.google.android.geo.API_KEY"
-               android:value="AIzaSyB6wulp3gFLmLw9UQSELklNTVScPrkNr0E"/>
+          
             
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
