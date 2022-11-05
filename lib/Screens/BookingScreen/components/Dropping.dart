@@ -1,13 +1,154 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:getvuapp/GetX/booking_controller.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-class DroppingSection extends StatelessWidget {
+class DroppingSection extends StatefulWidget {
   const DroppingSection({super.key});
 
   @override
+  State<DroppingSection> createState() => _DroppingSectionState();
+}
+
+class _DroppingSectionState extends State<DroppingSection> {
+  List droppingPoint = [
+    'BTMC Bus Stand',
+    'New Bus Stand',
+    'HSR Layout',
+  ];
+  final BookingController _bookingController = Get.put(
+    BookingController(),
+    permanent: false,
+  );
+  @override
   Widget build(BuildContext context) {
-    return const SizedBox(
-      height: 200,
-      width: 300,
+    return SizedBox(
+      child: Padding(
+        padding: const EdgeInsets.all(20),
+        child: Stack(
+          children: [
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Button
+
+                const SizedBox(
+                  height: 10,
+                ),
+                Visibility(
+                    visible: _bookingController.prefdropppingLocation == ''
+                        ? false
+                        : true,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Your Preferred Dropping Point',
+                          style: GoogleFonts.poppins(
+                            color: Colors.black,
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 5,
+                        ),
+                        Row(
+                          children: [
+                            Checkbox(
+                                value: true,
+                                activeColor: Colors.blue[100],
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10)),
+                                onChanged: (bool? newValue) {
+                                  setState(() {});
+                                }),
+                            Text(
+                              _bookingController.prefdropppingLocation,
+                              style: GoogleFonts.poppins(
+                                color: Colors.black,
+                                fontSize: 14,
+                                //fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 5,
+                        ),
+                      ],
+                    )),
+                Text(
+                  'All Nearby Dropping Point',
+                  style: GoogleFonts.poppins(
+                    color: Colors.black,
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(
+                  height: 5,
+                ),
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: droppingPoint.length,
+                    itemBuilder: (context, index) {
+                      return Row(
+                        children: [
+                          Checkbox(
+                              value: _bookingController.dropppingLocation ==
+                                      droppingPoint[index]
+                                  ? true
+                                  : false,
+                              activeColor: Colors.blue[100],
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10)),
+                              onChanged: (bool? newValue) {
+                                setState(() {
+                                  _bookingController.dropppingLocation =
+                                      droppingPoint[index];
+
+                                  _bookingController.setprefdropppingLocation(
+                                      droppingPoint[index]);
+                                });
+                              }),
+                          Text(
+                            droppingPoint[index],
+                            style: GoogleFonts.poppins(
+                              color: Colors.black,
+                              fontSize: 14,
+                              //fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      );
+                    },
+                  ),
+                )
+              ],
+            ),
+            Positioned(
+              bottom: 0,
+              right: 0,
+              child: FloatingActionButton.extended(
+                backgroundColor: Colors.blue[200],
+                onPressed: () {
+                  _bookingController.updategoTouserDetails(true);
+                },
+                label: Text(
+                  'Next',
+                  style: GoogleFonts.lato(
+                    color: Colors.black,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
