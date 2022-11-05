@@ -10,32 +10,30 @@ class HomeScreenBody extends StatefulWidget {
 }
 
 class _HomeScreenBodyState extends State<HomeScreenBody> {
-  static final CameraPosition _kGooglePlex = CameraPosition(
-    target: LatLng(37.42796133580664, -122.085749655962),
-    zoom: 14.4746,
+  static const CameraPosition _kGooglePlex = CameraPosition(
+    target: LatLng(12.906299668777187, 77.64887362594783),
+    zoom: 19,
   );
   @override
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
             body: Padding(
-      padding: const EdgeInsets.all(20),
-      child: SizedBox(
-        width: double.infinity,
-        //color: Colors.green,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            FromToWidget(),
-
-            Container(
-                height: 600,
-                child: GoogleMap(initialCameraPosition: _kGooglePlex)),
-            Container()
-            // const Text("Home Screen"),
-          ],
-        ),
+      padding: const EdgeInsets.all(0),
+      child: Stack(
+        children: [
+          const SizedBox(
+              height: double.infinity,
+              child: GoogleMap(initialCameraPosition: _kGooglePlex)),
+          Padding(
+            padding: const EdgeInsets.all(20),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [const FromToWidget(), Container()],
+            ),
+          ),
+        ],
       ),
     )));
   }
