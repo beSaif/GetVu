@@ -17,7 +17,7 @@ class NavbarActivity extends StatefulWidget {
 
 class _NavbarActivityState extends State<NavbarActivity> {
   final PersistentTabController _controller =
-      PersistentTabController(initialIndex: 0);
+      PersistentTabController(initialIndex: 1);
   final OtherController _otherController =
       Get.put(OtherController(), permanent: false);
 
