@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:getvuapp/GetX/other_controllers.dart';
 import 'package:getvuapp/Screens/BookingScreen/components/Boarding.dart';
 import 'package:getvuapp/Screens/BookingScreen/components/Dropping.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -10,8 +12,20 @@ class BookingsSection extends StatefulWidget {
   State<BookingsSection> createState() => _BookingsSectionState();
 }
 
-class _BookingsSectionState extends State<BookingsSection> {
+class _BookingsSectionState extends State<BookingsSection>
+    with TickerProviderStateMixin {
+  final OtherController _otherController = Get.put(
+    OtherController(),
+    permanent: false,
+  );
   final Image image = Image.asset('assets/Images/My project.png');
+
+  @override
+  void initState() {
+    super.initState();
+    _otherController.tabController = TabController(vsync: this, length: 2);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -75,6 +89,7 @@ class _BookingsSectionState extends State<BookingsSection> {
               child: Column(
                 children: [
                   TabBar(
+                    controller: _otherController.tabController,
                     indicatorColor: Colors.black,
                     tabs: [
                       Tab(
@@ -99,10 +114,11 @@ class _BookingsSectionState extends State<BookingsSection> {
                       ),
                     ],
                   ),
-                  const SizedBox(
-                    height: 200,
+                  SizedBox(
+                    height: 450,
                     child: TabBarView(
-                      children: [
+                      controller: _otherController.tabController,
+                      children: const [
                         BoardingSection(),
                         DroppingSection(),
                       ],

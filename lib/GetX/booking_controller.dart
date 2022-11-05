@@ -4,11 +4,23 @@ import 'package:get/get.dart';
 class BookingController extends GetxController {
   String fromLocation = 'Kerala';
   String toLocation = 'Bangalore';
-  String boardingLocation = 'Kerala';
+  String boardingLocation = '';
   String dropppingLocation = '';
+  String prefdropppingLocation = '';
+  String prefboardingLocation = '';
   String name = '';
   int age = 0;
   String gender = 'male';
+
+  void setprefdropppingLocation(String value) {
+    prefdropppingLocation = value;
+    update();
+  }
+
+  void setprefboardingLocation(String value) {
+    prefboardingLocation = value;
+    update();
+  }
 
   void setConfirmBooking(String nm, int ag, String gndr) {
     name = nm;
