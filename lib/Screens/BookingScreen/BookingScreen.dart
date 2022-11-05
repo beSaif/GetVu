@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:getvuapp/Screens/BookingScreen/components/BookingScreenBody.dart';
 
 class BookingScreen extends StatefulWidget {
   const BookingScreen({super.key});
@@ -13,7 +14,7 @@ class _BookingScreenState extends State<BookingScreen> {
     return const SafeArea(
       child: Scaffold(
         body: Center(
-          child: Text('BookingScreen'),
+          child: BookingScreenBody(),
         ),
       ),
     );
