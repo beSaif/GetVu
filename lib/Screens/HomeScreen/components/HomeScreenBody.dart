@@ -10,7 +10,7 @@ class HomeScreenBody extends StatefulWidget {
 }
 
 class _HomeScreenBodyState extends State<HomeScreenBody> {
-  static final CameraPosition _kGooglePlex = CameraPosition(
+  static const CameraPosition _kGooglePlex = CameraPosition(
     target: LatLng(37.42796133580664, -122.085749655962),
     zoom: 14.4746,
   );
@@ -26,10 +26,10 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: const [
-            FromToWidget(),
+          children: [
+            const FromToWidget(),
 
-            Container(
+            const SizedBox(
                 height: 600,
                 child: GoogleMap(initialCameraPosition: _kGooglePlex)),
             Container()
