@@ -11,6 +11,12 @@ class BookingController extends GetxController {
   String name = '';
   int age = 0;
   String gender = 'male';
+  bool goToUserDetails = false;
+
+  void updategoTouserDetails(bool value) {
+    goToUserDetails = value;
+    update();
+  }
 
   void setprefdropppingLocation(String value) {
     prefdropppingLocation = value;

@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:getvuapp/GetX/booking_controller.dart';
 import 'package:getvuapp/Screens/HomeScreen/components/FromToWidget.dart';
 import 'package:getvuapp/Screens/HomeScreen/components/SelectCitySheet.dart';
 import 'package:google_fonts/google_fonts.dart';

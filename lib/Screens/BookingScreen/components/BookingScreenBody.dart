@@ -54,7 +54,7 @@ class _BookingScreenBodyState extends State<BookingScreenBody> {
                     BookingsSection(),
                   ],
                 ),
-              )
+              ),
             ],
           ),
         ));

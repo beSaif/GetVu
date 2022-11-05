@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:getvuapp/GetX/booking_controller.dart';
 import 'package:getvuapp/GetX/other_controllers.dart';
 import 'package:google_fonts/google_fonts.dart';
