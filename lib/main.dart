@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:getvuapp/navbar_activity.dart';
 
 void main() {
@@ -10,12 +11,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'GetVuApp',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
+        // home: const LoginScreen()
         home: const NavbarActivity());
   }
 }
