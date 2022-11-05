@@ -44,7 +44,7 @@ class _FromToWidgetState extends State<FromToWidget> {
               ),
               GetBuilder<BookingController>(
                 builder: (_) => FromtoButton(
-                    buttonType: ButtonType.from,
+                    buttonType: ButtonType.to,
                     location: _bookingController.toLocation),
               ),
             ],
