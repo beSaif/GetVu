@@ -20,6 +20,13 @@ class BookingController extends GetxController {
     update();
   }
 
+  bool goToPayment = false;
+
+  void updategotoPayment(bool value) {
+    goToPayment = value;
+    update();
+  }
+
   void updategoTouserDetails(bool value) {
     goToUserDetails = value;
     update();

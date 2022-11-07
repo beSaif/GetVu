@@ -155,7 +155,7 @@ class _UseBookingrDetaliState extends State<UserBookingDetail> {
                   FloatingActionButton.extended(
                     backgroundColor: Colors.blue[200],
                     onPressed: () {
-                      _bookingController.updategoTouserDetails(false);
+                      _bookingController.updategotoPayment(false);
                     },
                     label: const Icon(
                       Icons.arrow_back,
