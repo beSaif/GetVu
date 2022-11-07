@@ -15,12 +15,12 @@ class BookingController extends GetxController {
   //TODO: SET TO FALSE
   bool goToTicketCards = false;
 
+  bool goToPayment = false;
+
   void updategoToTicketCards(bool value) {
     goToTicketCards = value;
     update();
   }
-
-  bool goToPayment = false;
 
   void updategotoPayment(bool value) {
     goToPayment = value;
