@@ -8,9 +8,9 @@ class BookingController extends GetxController {
   String dropppingLocation = '';
   String prefdropppingLocation = '';
   String prefboardingLocation = '';
-  String name = '';
-  int age = 0;
-  String gender = 'male';
+  String? name;
+  int? age;
+  String? gender;
   bool goToUserDetails = false;
   //TODO: SET TO FALSE
   bool goToTicketCards = false;

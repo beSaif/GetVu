@@ -55,8 +55,8 @@ class _PaymentCardState extends State<PaymentCard> {
                   FloatingActionButton.extended(
                     backgroundColor: Colors.blue[200],
                     onPressed: () {
-                      debugPrint('Navigate to Payment Screen');
-                      _bookingController.updategotoPayment(true);
+                      debugPrint('Navigate to Tickets Screen');
+                      _bookingController.updategoToTicketCards(true);
                     },
                     label: Text(
                       'Confirm Payment',

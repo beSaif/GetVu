@@ -17,11 +17,11 @@ class _UseBookingrDetaliState extends State<UserBookingDetail> {
     permanent: false,
   );
   final _nameController = TextEditingController();
-  late String name;
+  String? name;
   final _ageController = TextEditingController();
-  late int age;
+  int? age;
 
-  late var gender;
+  String? gender;
   List dropdownItemList = [
     {'label': 'Male', 'value': 'Male'}, // label is required and unique
     {'label': 'Female', 'value': 'Female'},
@@ -30,6 +30,15 @@ class _UseBookingrDetaliState extends State<UserBookingDetail> {
   ];
   @override
   Widget build(BuildContext context) {
+    if (_bookingController.name != null) {
+      _nameController.text = _bookingController.name!;
+      name = _bookingController.name;
+
+      age = _bookingController.age;
+      _ageController.text = _bookingController.age.toString();
+
+      gender = _bookingController.gender;
+    }
     return SizedBox(
       width: double.infinity,
       height: 500,
@@ -116,6 +125,7 @@ class _UseBookingrDetaliState extends State<UserBookingDetail> {
                 ),
                 CoolDropdown(
                   dropdownList: dropdownItemList,
+                  defaultValue: gender != null ? {'label': '$gender'} : null,
                   onChange: (a) {
                     print(a);
                     gender = a['value'].toString();
@@ -155,7 +165,7 @@ class _UseBookingrDetaliState extends State<UserBookingDetail> {
                   FloatingActionButton.extended(
                     backgroundColor: Colors.blue[200],
                     onPressed: () {
-                      _bookingController.updategotoPayment(false);
+                      _bookingController.updategoTouserDetails(false);
                     },
                     label: const Icon(
                       Icons.arrow_back,
@@ -167,13 +177,17 @@ class _UseBookingrDetaliState extends State<UserBookingDetail> {
                   FloatingActionButton.extended(
                     backgroundColor: Colors.blue[200],
                     onPressed: () {
-                      debugPrint('Navigate to Payment Screen');
-                      debugPrint(name);
-                      debugPrint(age.toString());
-                      debugPrint(gender);
-                      setState(() {
-                        _bookingController.updategoToTicketCards(true);
-                      });
+                      if (name != null && age != null && gender != null) {
+                        debugPrint('Navigate to Payment Screen');
+                        _bookingController.setConfirmBooking(
+                            name!, age!, gender!);
+                        _bookingController.updategotoPayment(true);
+                      } else {
+                        ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                        ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                                content: Text('Please fill all details.')));
+                      }
                     },
                     label: Text(
                       'Confirm Booking',
