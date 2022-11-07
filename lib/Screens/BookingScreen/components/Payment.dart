@@ -3,14 +3,14 @@ import 'package:get/get.dart';
 import 'package:getvuapp/GetX/booking_controller.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class UserBookingDetail extends StatefulWidget {
-  const UserBookingDetail({super.key});
+class PaymentCard extends StatefulWidget {
+  const PaymentCard({super.key});
 
   @override
-  State<UserBookingDetail> createState() => _UseBookingrDetaliState();
+  State<PaymentCard> createState() => _PaymentCardState();
 }
 
-class _UseBookingrDetaliState extends State<UserBookingDetail> {
+class _PaymentCardState extends State<PaymentCard> {
   final BookingController _bookingController = Get.put(
     BookingController(),
     permanent: false,
@@ -29,7 +29,7 @@ class _UseBookingrDetaliState extends State<UserBookingDetail> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: const [
                 // TODO: code for accepting user booking details
-                Text('User Booking detail ')
+                Text('Payment Booking detail ')
               ],
             ),
             Positioned(
@@ -59,7 +59,7 @@ class _UseBookingrDetaliState extends State<UserBookingDetail> {
                       _bookingController.updategotoPayment(true);
                     },
                     label: Text(
-                      'Confirm Booking',
+                      'Confirm Payment',
                       style: GoogleFonts.lato(
                         color: Colors.black,
                         fontSize: 16,

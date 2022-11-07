@@ -4,6 +4,7 @@ import 'package:getvuapp/GetX/booking_controller.dart';
 import 'package:getvuapp/GetX/other_controllers.dart';
 import 'package:getvuapp/Screens/BookingScreen/components/Boarding.dart';
 import 'package:getvuapp/Screens/BookingScreen/components/Dropping.dart';
+import 'package:getvuapp/Screens/BookingScreen/components/Payment.dart';
 import 'package:getvuapp/Screens/BookingScreen/components/UserBookingDetail.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -40,107 +41,113 @@ class _BookingsSectionState extends State<BookingsSection>
         const SizedBox(
           height: 20,
         ),
-        Container(
-          height: 620,
-          width: 360,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            border: Border.all(color: Colors.black, width: 1),
-            borderRadius: BorderRadius.circular(30),
-          ),
-          child: Column(children: [
-            const Padding(padding: EdgeInsets.all(15)),
-            Row(
-              children: [
-                const SizedBox(
-                  width: 20,
-                ),
-                CircleAvatar(
-                  foregroundImage: image.image,
-                  backgroundColor: Colors.blue[100],
-                  radius: 35,
-                ),
-                const SizedBox(
-                  width: 10,
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Rishi Singh',
-                      style: GoogleFonts.lato(
-                        color: Colors.black,
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Text(
-                      'CXO at XYZ Company',
-                      style: GoogleFonts.lato(
-                        color: Colors.black,
-                        fontSize: 13,
-                        //fontWeight: FontWeight.bold,
-                      ),
-                    )
-                  ],
-                )
-              ],
+        GetBuilder<BookingController>(builder: (context) {
+          return Container(
+            height: 620,
+            width: 360,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              border: Border.all(color: Colors.black, width: 1),
+              borderRadius: BorderRadius.circular(30),
             ),
-            const SizedBox(
-              height: 15,
-            ),
-            GetBuilder<BookingController>(
-              builder: (controller) {
-                return _bookingController.goToUserDetails == true
-                    ? const UserBookingDetail()
-                    : DefaultTabController(
-                        length: 2,
-                        child: Column(
+            child: _bookingController.goToPayment
+                ? PaymentCard()
+                : Column(children: [
+                    const Padding(padding: EdgeInsets.all(15)),
+                    Row(
+                      children: [
+                        const SizedBox(
+                          width: 20,
+                        ),
+                        CircleAvatar(
+                          foregroundImage: image.image,
+                          backgroundColor: Colors.blue[100],
+                          radius: 35,
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            TabBar(
-                              controller: _otherController.tabController,
-                              indicatorColor: Colors.black,
-                              tabs: [
-                                Tab(
-                                  child: Text(
-                                    'Boarding',
-                                    style: GoogleFonts.lato(
-                                      color: Colors.black,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                ),
-                                Tab(
-                                  child: Text(
-                                    'Dropping',
-                                    style: GoogleFonts.lato(
-                                      color: Colors.black,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                ),
-                              ],
+                            Text(
+                              'Rishi Singh',
+                              style: GoogleFonts.lato(
+                                color: Colors.black,
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
-                            SizedBox(
-                              height: 450,
-                              child: TabBarView(
-                                controller: _otherController.tabController,
-                                children: const [
-                                  BoardingSection(),
-                                  DroppingSection(),
-                                ],
+                            Text(
+                              'CXO at XYZ Company',
+                              style: GoogleFonts.lato(
+                                color: Colors.black,
+                                fontSize: 13,
+                                //fontWeight: FontWeight.bold,
                               ),
                             )
                           ],
-                        ),
-                      );
-              },
-            ),
-          ]),
-        ),
+                        )
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    GetBuilder<BookingController>(
+                      builder: (controller) {
+                        return _bookingController.goToUserDetails == true
+                            ? const UserBookingDetail()
+                            : DefaultTabController(
+                                length: 2,
+                                child: Column(
+                                  children: [
+                                    TabBar(
+                                      controller:
+                                          _otherController.tabController,
+                                      indicatorColor: Colors.black,
+                                      tabs: [
+                                        Tab(
+                                          child: Text(
+                                            'Boarding',
+                                            style: GoogleFonts.lato(
+                                              color: Colors.black,
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                        ),
+                                        Tab(
+                                          child: Text(
+                                            'Dropping',
+                                            style: GoogleFonts.lato(
+                                              color: Colors.black,
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      height: 450,
+                                      child: TabBarView(
+                                        controller:
+                                            _otherController.tabController,
+                                        children: const [
+                                          BoardingSection(),
+                                          DroppingSection(),
+                                        ],
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              );
+                      },
+                    ),
+                  ]),
+          );
+        }),
         const SizedBox(
           height: 20,
         )

@@ -134,7 +134,14 @@ class _DroppingSectionState extends State<DroppingSection> {
               child: FloatingActionButton.extended(
                 backgroundColor: Colors.blue[200],
                 onPressed: () {
-                  _bookingController.updategoTouserDetails(true);
+                  if (_bookingController.dropppingLocation != '') {
+                    _bookingController.updategoTouserDetails(true);
+                  } else {
+                    ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                      content: Text('Select a dropping location.'),
+                    ));
+                  }
                 },
                 label: Text(
                   'Next',

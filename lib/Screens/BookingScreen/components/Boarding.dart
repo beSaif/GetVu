@@ -140,7 +140,14 @@ class _BoardingSectionState extends State<BoardingSection> {
               child: FloatingActionButton.extended(
                 backgroundColor: Colors.blue[200],
                 onPressed: () {
-                  _otherController.updateTabController(1);
+                  if (_bookingController.boardingLocation != '') {
+                    _otherController.updateTabController(1);
+                  } else {
+                    ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                      content: Text('Select a boarding location.'),
+                    ));
+                  }
                 },
                 label: Text(
                   'Next',
