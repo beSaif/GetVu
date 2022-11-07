@@ -125,11 +125,10 @@ class _UseBookingrDetaliState extends State<UserBookingDetail> {
                 ),
                 CoolDropdown(
                   dropdownList: dropdownItemList,
-                  defaultValue: gender != null ? {'label': '$gender'} : null,
+                  defaultValue: gender != null ? {'value': '$gender'} : null,
                   onChange: (a) {
-                    print(a);
                     gender = a['value'].toString();
-                    print('changed');
+                    debugPrint('changed');
                   },
                   dropdownHeight: 250,
                   resultHeight: 50,
@@ -172,8 +171,6 @@ class _UseBookingrDetaliState extends State<UserBookingDetail> {
                       color: Colors.black,
                     ),
                   ),
-
-                  // TODO: Navigate to payment screen
                   FloatingActionButton.extended(
                     backgroundColor: Colors.blue[200],
                     onPressed: () {

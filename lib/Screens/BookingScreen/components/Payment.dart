@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:getvuapp/GetX/booking_controller.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
-import 'package:getvuapp/Secure/razor_credential.dart' as razorCredentials;
+import 'package:getvuapp/Secure/razor_credential.dart' as razor_credentials;
 import 'package:lottie/lottie.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
 
@@ -30,7 +30,7 @@ class _PaymentCardState extends State<PaymentCard> {
       _razorpay.on(Razorpay.EVENT_PAYMENT_ERROR, _handlePaymentError);
       _razorpay.on(Razorpay.EVENT_EXTERNAL_WALLET, _handleExternalWallet);
     });
-    Future.delayed(Duration(seconds: 5), () {
+    Future.delayed(const Duration(seconds: 5), () {
       debugPrint("Payment gateway in 5 seconds");
       createOrder();
     });
@@ -50,7 +50,7 @@ class _PaymentCardState extends State<PaymentCard> {
 
   void _handlePaymentError(PaymentFailureResponse response) async {
     _bookingController.updategotoPayment(false);
-    print(response);
+    debugPrint(response.toString());
     // Do something when payment fails
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
@@ -60,7 +60,7 @@ class _PaymentCardState extends State<PaymentCard> {
   }
 
   void _handleExternalWallet(ExternalWalletResponse response) {
-    print(response);
+    debugPrint(response.toString());
     // Do something when an external wallet is selected
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
@@ -71,8 +71,8 @@ class _PaymentCardState extends State<PaymentCard> {
 
 // create order
   void createOrder() async {
-    String username = razorCredentials.keyId;
-    String password = razorCredentials.keySecret;
+    String username = razor_credentials.keyId;
+    String password = razor_credentials.keySecret;
     String basicAuth =
         'Basic ${base64Encode(utf8.encode('$username:$password'))}';
 
@@ -94,12 +94,12 @@ class _PaymentCardState extends State<PaymentCard> {
     if (res.statusCode == 200) {
       openGateway(jsonDecode(res.body)['id']);
     }
-    print(res.body);
+    debugPrint(res.body);
   }
 
   openGateway(String orderId) {
     var options = {
-      'key': razorCredentials.keyId,
+      'key': razor_credentials.keyId,
       'amount': 100, //in the smallest currency sub-unit.
       'name': 'Acme Corp.',
       'order_id': orderId, // Generate order_id using Orders API
@@ -141,7 +141,7 @@ class _PaymentCardState extends State<PaymentCard> {
       body: formData,
     );
 
-    print(res.body);
+    debugPrint(res.body);
     if (res.statusCode == 200) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
@@ -171,7 +171,7 @@ class _PaymentCardState extends State<PaymentCard> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(),
+                const SizedBox(),
                 Center(
                     child: Lottie.network(
                         'https://assets7.lottiefiles.com/private_files/lf30_jc5SU1.json')),
@@ -205,7 +205,6 @@ class _PaymentCardState extends State<PaymentCard> {
             //         ),
             //       ),
 
-            //       // TODO: Navigate to payment screen
             //       FloatingActionButton.extended(
             //         backgroundColor: Colors.blue[200],
             //         onPressed: () {

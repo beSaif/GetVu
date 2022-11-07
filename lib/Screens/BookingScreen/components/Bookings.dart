@@ -44,7 +44,7 @@ class _BookingsSectionState extends State<BookingsSection>
         ),
         GetBuilder<BookingController>(builder: (context) {
           return _bookingController.goToTicketCards
-              ? TicketsCard()
+              ? const TicketsCard()
               : _bookingController.goToPayment
                   ? const PaymentCard()
                   : Container(
@@ -100,7 +100,7 @@ class _BookingsSectionState extends State<BookingsSection>
                         GetBuilder<BookingController>(
                           builder: (controller) {
                             return _bookingController.goToUserDetails == true
-                                ? UserBookingDetail()
+                                ? const UserBookingDetail()
                                 : DefaultTabController(
                                     length: 2,
                                     child: Column(
