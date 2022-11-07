@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:getvuapp/GetX/booking_controller.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class TicketsCard extends StatefulWidget {
@@ -11,11 +9,6 @@ class TicketsCard extends StatefulWidget {
 }
 
 class _TicketsCardState extends State<TicketsCard> {
-  final BookingController _bookingController = Get.put(
-    BookingController(),
-    permanent: false,
-  );
-
   final Image image = Image.asset('assets/Images/My project.png');
   @override
   Widget build(BuildContext context) {
@@ -310,7 +303,6 @@ class _TicketsCardState extends State<TicketsCard> {
             //         ),
             //       ),
 
-            //       // TODO: Navigate to payment screen
             //       FloatingActionButton.extended(
             //         backgroundColor: Colors.blue[200],
             //         onPressed: () {

@@ -16,8 +16,6 @@ class NavbarActivity extends StatefulWidget {
 }
 
 class _NavbarActivityState extends State<NavbarActivity> {
-  final PersistentTabController _controller =
-      PersistentTabController(initialIndex: 0);
   final OtherController _otherController =
       Get.put(OtherController(), permanent: false);
 
@@ -45,7 +43,7 @@ class _NavbarActivityState extends State<NavbarActivity> {
 
     return PersistentTabView(
       context,
-      controller: _controller,
+      controller: _otherController.navBarController,
       screens: _buildScreens(),
       items: _navBarsItems(),
       confineInSafeArea: true,
