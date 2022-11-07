@@ -4,7 +4,7 @@ import 'package:getvuapp/GetX/booking_controller.dart';
 import 'package:getvuapp/GetX/other_controllers.dart';
 import 'package:getvuapp/Screens/BookingScreen/components/Boarding.dart';
 import 'package:getvuapp/Screens/BookingScreen/components/Dropping.dart';
-import 'package:getvuapp/Screens/BookingScreen/components/Payment.dart';
+import 'package:getvuapp/Screens/BookingScreen/components/TicketsCard.dart';
 import 'package:getvuapp/Screens/BookingScreen/components/UserBookingDetail.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -42,17 +42,17 @@ class _BookingsSectionState extends State<BookingsSection>
           height: 20,
         ),
         GetBuilder<BookingController>(builder: (context) {
-          return Container(
-            height: 620,
-            width: 360,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              border: Border.all(color: Colors.black, width: 1),
-              borderRadius: BorderRadius.circular(30),
-            ),
-            child: _bookingController.goToPayment
-                ? PaymentCard()
-                : Column(children: [
+          return _bookingController.goToTicketCards
+              ? const TicketsCard()
+              : Container(
+                  height: 620,
+                  width: 360,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    border: Border.all(color: Colors.black, width: 1),
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  child: Column(children: [
                     const Padding(padding: EdgeInsets.all(15)),
                     Row(
                       children: [
@@ -146,7 +146,7 @@ class _BookingsSectionState extends State<BookingsSection>
                       },
                     ),
                   ]),
-          );
+                );
         }),
         const SizedBox(
           height: 20,

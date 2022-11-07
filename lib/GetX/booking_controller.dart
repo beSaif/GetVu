@@ -12,6 +12,13 @@ class BookingController extends GetxController {
   int age = 0;
   String gender = 'male';
   bool goToUserDetails = false;
+  //TODO: SET TO FALSE
+  bool goToTicketCards = false;
+
+  void updategoToTicketCards(bool value) {
+    goToTicketCards = value;
+    update();
+  }
 
   bool goToPayment = false;
 
