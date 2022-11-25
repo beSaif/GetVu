@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getvuapp/API/marker_api.dart';
 import 'package:getvuapp/GetX/other_controllers.dart';
 import 'package:getvuapp/Screens/HomeScreen/components/FromToWidget.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -15,11 +16,30 @@ class HomeScreenBody extends StatefulWidget {
 class _HomeScreenBodyState extends State<HomeScreenBody> {
   final OtherController _otherController =
       Get.put(OtherController(), permanent: false);
-  static const CameraPosition _kGooglePlex = CameraPosition(
+
+  static const CameraPosition _defaultLocation = CameraPosition(
     target: LatLng(12.906299668777187, 77.64887362594783),
-    zoom: 19,
+    zoom: 17,
   );
+
+  Set<Marker> _markers = {};
+
+  void fetchMarker() async {
+    _markers = await MarkerApi.getMarkers();
+    if (_markers != null) {
+      debugPrint("Fetched Successfully");
+    }
+    setState(() {});
+  }
+
   @override
+  void initState() {
+    // TODO: implement initState
+
+    fetchMarker();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -28,9 +48,13 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
       padding: const EdgeInsets.all(0),
       child: Stack(
         children: [
-          const SizedBox(
+          SizedBox(
               height: double.infinity,
-              child: GoogleMap(initialCameraPosition: _kGooglePlex)),
+              child: GoogleMap(
+                mapType: MapType.terrain,
+                initialCameraPosition: _defaultLocation,
+                markers: _markers,
+              )),
           Padding(
             padding: const EdgeInsets.all(20),
             child: Column(
