@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getvuapp/API/marker_api.dart';
 import 'package:getvuapp/Model/MaterialColor.dart';
 import 'package:getvuapp/navbar_activity.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await MarkerApi.setMarker();
   runApp(const MyApp());
 }
 
