@@ -6,7 +6,7 @@ import 'package:getvuapp/navbar_activity.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await MarkerApi.setMarker();
+  //await MarkerApi.setMarker();
   runApp(const MyApp());
 }
 
