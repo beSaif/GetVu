@@ -173,8 +173,8 @@ class _PaymentCardState extends State<PaymentCard> {
               children: [
                 const SizedBox(),
                 Center(
-                    child: Lottie.network(
-                        'https://assets7.lottiefiles.com/private_files/lf30_jc5SU1.json')),
+                  child: LottieBuilder.asset('assets/Animation/payment.json'),
+                ),
                 Text(
                   'Please stay connected while we ensure your details.',
                   textAlign: TextAlign.center,
