@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:getvuapp/Screens/BookingScreen/components/Bookings.dart';
+import 'package:getvuapp/Screens/BookingScreen/components/ChatScreen.dart';
 import 'package:getvuapp/Screens/BookingScreen/components/Messages.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -51,6 +52,7 @@ class _BookingScreenBodyState extends State<BookingScreenBody> {
                 child: TabBarView(
                   children: [
                     MessagesSection(),
+                    //ChatScreen(),
                     BookingsSection(),
                   ],
                 ),
