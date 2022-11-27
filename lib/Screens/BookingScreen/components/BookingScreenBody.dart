@@ -51,6 +51,7 @@ class _BookingScreenBodyState extends State<BookingScreenBody> {
                 child: TabBarView(
                   children: [
                     MessagesSection(),
+                    //ChatScreen(),
                     BookingsSection(),
                   ],
                 ),
