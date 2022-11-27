@@ -1,15 +1,13 @@
-# getvuapp
+# GetVu
 
-[description here]
-
-## About
+### About 
 
 A semi decentralized bus seat networking app.
 
 SeatMate will allow users to be able to interact with other users before booking a bus seat, if the user they have interacted with is like-minded, they will be able to match on the app and share a bus ride. This will make bus rides for solo travellers more comfortable.
 
 
-### GetVu Screenshots
+## Screenshots
 
 | Allow Location                                  | Getting Location                                    | HomePage                                   |
 |:-----------------------------------------------:|:---------------------------------------------------:| :-----------------------------------------:|
