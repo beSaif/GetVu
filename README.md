@@ -1,17 +1,47 @@
 # getvuapp
 
-A new Flutter project.
+[description here]
 
-## Getting Started
+## About
 
-This project is a starting point for a Flutter application.
+A semi decentralized bus seat networking app.
 
-A few resources to get you started if this is your first Flutter project:
+SeatMate will allow users to be able to interact with other users before booking a bus seat, if the user they have interacted with is like-minded, they will be able to match on the app and share a bus ride. This will make bus rides for solo travellers more comfortable.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# GetVu
+### GetVu Screenshots
+
+| Allow Location                                  | Getting Location                                    | HomePage                                   |
+|:-----------------------------------------------:|:---------------------------------------------------:| :-----------------------------------------:|
+| ![Allow Location](Screenshots/AllowLocation.png)| ![Getting Location](Screenshots/GettingLocation.png)| ![Home](Screenshots/HomePage.png)          |
+
+| Nearby User                                 | Nearby User Info                                   |
+|:--------------------------------------:|:-----------------------------------------:|
+| ![Nearby User](Screenshots/NearbyUser.png) | ![Nearby User Info](Screenshots/NearbyUserInfo.png) |
+
+| Select City                                  | Boarding Point                                   | Dropping Point                                   |
+|:--------------------------------------------:|:------------------------------------------------:| :-----------------------------------------------:|
+| ![Select City](Screenshots/SelectCity.png)   | ![Boarding Point](Screenshots/BoardingPoint.png) | ![Dropping Point](Screenshots/DroppingPoint.png) |
+
+
+| User Details                                  | Payment Loading                                    | Payment Screen                                   |
+|:---------------------------------------------:|:--------------------------------------------------:| :-----------------------------------------------:|
+| ![User Details](Screenshots/UserDetails.png)  | ![Payment Loading](Screenshots/PaymentLoading.png) | ![Payment Screen](Screenshots/PaymentScreen.png) |
+
+
+
+| Ticket Card                                  | Messages                                   | Chat Screen                                |
+|:--------------------------------------------:|:------------------------------------------:| :-----------------------------------------:|
+| ![Ticket Card](Screenshots/TicketCard.png)   | ![Messages](Screenshots/Messages.png)      | ![Chat Screen](Screenshots/ChatScreen.png) |
+
+## Download
+[APK](https://github.com/beSaif/GetVu/blob/dev/app-release.apk)
+
+## Disclaimer
+
+All the users data are stored only locally and no information is shared across the internet. 
+
+## Developers
+
+- [Saifudeen Hisham K M](github.com/beSaif/)
+- [Jumainah Khan](github.com/jumainahkhan/)
