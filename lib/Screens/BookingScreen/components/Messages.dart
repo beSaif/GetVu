@@ -48,8 +48,10 @@ class _MessagesSectionState extends State<MessagesSection> {
                 ),
               ),
               onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => ChatScreen()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const ChatScreen()));
               },
             );
           },

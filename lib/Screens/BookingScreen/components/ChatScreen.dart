@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_ui/flutter_chat_ui.dart';
-import 'package:getvuapp/Screens/BookingScreen/components/Messages.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 
@@ -12,13 +11,21 @@ class ChatScreen extends StatefulWidget {
 }
 
 class _ChatScreenState extends State<ChatScreen> {
-  List<types.Message> _messages = [];
-  final _user = const types.User(id: '82091008-a484-4a89-ae75-a22bf8d6f3ac');
+  final _user = const types.User(id: 'me');
   final Image image1 = Image.asset('assets/Images/boygreen.png');
   final Image image = Image.asset('assets/Images/My project.png');
+  final List<types.Message> _messages = [
+    types.TextMessage(
+      author: types.User(id: 'them'),
+      createdAt: DateTime.now().millisecondsSinceEpoch,
+      id: 'id',
+      text: "Hey let's talk about Crypto",
+    )
+  ];
   void _addMessage(types.Message message) {
     setState(() {
-      _messages.insert(0, message);
+      _messages.insert(1, message);
+      print(_messages);
     });
   }
 
@@ -135,7 +142,7 @@ class _ChatScreenState extends State<ChatScreen> {
                         ),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     Padding(
@@ -172,7 +179,7 @@ class _ChatScreenState extends State<ChatScreen> {
                         ],
                       ),
                     ),
-                    Container(
+                    SizedBox(
                       width: 337,
                       height: 450,
                       child: Chat(
@@ -181,7 +188,7 @@ class _ChatScreenState extends State<ChatScreen> {
                         user: _user,
                         theme: DefaultChatTheme(
                             inputBackgroundColor:
-                                Color.fromRGBO(100, 181, 246, 1),
+                                const Color.fromRGBO(100, 181, 246, 1),
                             inputBorderRadius: BorderRadius.circular(20)),
                       ),
                     ),
