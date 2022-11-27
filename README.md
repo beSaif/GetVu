@@ -15,6 +15,10 @@ SeatMate will allow users to be able to interact with other users before booking
 |:-----------------------------------------------:|:---------------------------------------------------:| :-----------------------------------------:|
 | ![Allow Location](Screenshots/AllowLocation.png)| ![Getting Location](Screenshots/GettingLocation.png)| ![Home](Screenshots/HomePage.png)          |
 
+| Nearby User                                 | Nearby User Info                                   |
+|:--------------------------------------:|:-----------------------------------------:|
+| ![Nearby User](Screenshots/NearbyUser.png) | ![Nearby User Info](Screenshots/NearbyUserInfo.png) |
+
 | Select City                                  | Boarding Point                                   | Dropping Point                                   |
 |:--------------------------------------------:|:------------------------------------------------:| :-----------------------------------------------:|
 | ![Select City](Screenshots/SelectCity.png)   | ![Boarding Point](Screenshots/BoardingPoint.png) | ![Dropping Point](Screenshots/DroppingPoint.png) |
@@ -30,6 +34,8 @@ SeatMate will allow users to be able to interact with other users before booking
 |:--------------------------------------------:|:------------------------------------------:| :-----------------------------------------:|
 | ![Ticket Card](Screenshots/TicketCard.png)   | ![Messages](Screenshots/Messages.png)      | ![Chat Screen](Screenshots/ChatScreen.png) |
 
+## Download
+[APK](https://github.com/beSaif/GetVu/blob/dev/app-release.apk)
 
 ## Disclaimer
 
