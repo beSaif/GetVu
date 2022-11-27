@@ -44,7 +44,7 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
                                 target: LatLng(
                                     MarkerApi.userCurrentLocation.latitude,
                                     MarkerApi.userCurrentLocation.longitude),
-                                zoom: 15),
+                                zoom: 16.5),
                             markers: snapshot.data!,
                           )),
                       Padding(

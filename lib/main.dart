@@ -4,6 +4,8 @@ import 'package:getvuapp/Model/MaterialColor.dart';
 import 'package:getvuapp/navbar_activity.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
+final navigatorKey = GlobalKey<NavigatorState>();
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   //await MarkerApi.setMarker();
@@ -25,6 +27,7 @@ class MyApp extends StatelessWidget {
             primarySwatch: color,
           ),
           // home: const LoginScreen()
+          navigatorKey: navigatorKey,
           home: const NavbarActivity());
     });
   }

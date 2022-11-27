@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:get/get.dart';
+import 'package:getvuapp/GetX/other_controllers.dart';
+import 'package:getvuapp/Screens/HomeScreen/components/markerDialog.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class MarkerApi {
@@ -52,37 +55,46 @@ class MarkerApi {
         markerId: const MarkerId("user1"),
         position: LatLng(latitude + 0.001, longitude + 0.001),
         icon: BitmapDescriptor.defaultMarkerWithHue(205),
-        infoWindow: const InfoWindow(
+        infoWindow: InfoWindow(
           title: "Santhosh",
           snippet: "GetVu Founder",
+          onTap: () => MarkerDialog(
+            title: "Santhosh",
+            pos: "GetVu Founder",
+            toI: "Startups",
+            goals: 'To make a difference',
+          ),
         ),
-        onTap: () {
-          debugPrint("Marker Tapped");
-        },
       ),
       Marker(
         markerId: const MarkerId("user2"),
         position: LatLng(latitude - 0.001, longitude - 0.001),
         icon: BitmapDescriptor.defaultMarkerWithHue(205),
-        infoWindow: const InfoWindow(
+        infoWindow: InfoWindow(
           title: "Saif",
           snippet: "Flutter Developer",
+          onTap: () => MarkerDialog(
+            title: "Saif",
+            pos: "Flutter Developer",
+            toI: "App Dev",
+            goals: 'To publish flutter packages in pub.dev',
+          ),
         ),
-        onTap: () {
-          debugPrint("Marker Tapped");
-        },
       ),
       Marker(
         markerId: const MarkerId("user3"),
         position: LatLng(latitude - 0.0018, longitude - 0.001),
         icon: BitmapDescriptor.defaultMarkerWithHue(205),
-        infoWindow: const InfoWindow(
+        infoWindow: InfoWindow(
           title: "Jumainah",
           snippet: "Flutter Developer",
+          onTap: () => MarkerDialog(
+            title: "Jumainah",
+            pos: "Flutter Developer",
+            toI: "App Dev",
+            goals: 'To be a Flutter Pro',
+          ),
         ),
-        onTap: () {
-          debugPrint("Marker Tapped");
-        },
       )
     };
     return markers;
