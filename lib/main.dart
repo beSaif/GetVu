@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:getvuapp/API/marker_api.dart';
 import 'package:getvuapp/Model/MaterialColor.dart';
 import 'package:getvuapp/navbar_activity.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,13 +17,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     MaterialColor color = MaterialColor(0xFFBBDEFB, colorCodes);
-    return GetMaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'GetVuApp',
-        theme: ThemeData(
-          primarySwatch: color,
-        ),
-        // home: const LoginScreen()
-        home: const NavbarActivity());
+
+    return ResponsiveSizer(builder: (context, orientation, deviceType) {
+      return GetMaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'GetVuApp',
+          theme: ThemeData(
+            primarySwatch: color,
+          ),
+          // home: const LoginScreen()
+          home: const NavbarActivity());
+    });
   }
 }

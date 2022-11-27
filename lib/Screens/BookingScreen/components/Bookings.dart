@@ -8,6 +8,7 @@ import 'package:getvuapp/Screens/BookingScreen/components/Payment.dart';
 import 'package:getvuapp/Screens/BookingScreen/components/TicketsCard.dart';
 import 'package:getvuapp/Screens/BookingScreen/components/UserBookingDetail.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class BookingsSection extends StatefulWidget {
   const BookingsSection({super.key});
@@ -48,7 +49,7 @@ class _BookingsSectionState extends State<BookingsSection>
               : _bookingController.goToPayment
                   ? const PaymentCard()
                   : Container(
-                      height: 620,
+                      height: 79.1.h,
                       width: 360,
                       decoration: BoxDecoration(
                         color: Colors.white,
@@ -95,7 +96,7 @@ class _BookingsSectionState extends State<BookingsSection>
                           ],
                         ),
                         const SizedBox(
-                          height: 15,
+                          height: 0,
                         ),
                         GetBuilder<BookingController>(
                           builder: (controller) {
@@ -133,7 +134,7 @@ class _BookingsSectionState extends State<BookingsSection>
                                           ],
                                         ),
                                         SizedBox(
-                                          height: 450,
+                                          height: 59.h,
                                           child: TabBarView(
                                             controller:
                                                 _otherController.tabController,

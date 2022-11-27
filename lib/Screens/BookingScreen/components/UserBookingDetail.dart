@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:getvuapp/GetX/booking_controller.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:cool_dropdown/cool_dropdown.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class UserBookingDetail extends StatefulWidget {
   const UserBookingDetail({super.key});
@@ -41,7 +42,7 @@ class _UseBookingrDetaliState extends State<UserBookingDetail> {
     }
     return SizedBox(
       width: double.infinity,
-      height: 500,
+      height: 65.h,
       child: Padding(
         padding: const EdgeInsets.all(20),
         child: Stack(
